@@ -9,17 +9,17 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href=""><i class="fa fa-home"></i> <span
+                    <a class="nav-link" href="{{ path('app_homepage') }}"><i class="fa fa-home"></i> <span
                                 class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">New Ad</a>
+                    <a class="nav-link" href="{{ path('app_add_ad') }}">New Ad</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Deals</a>
+                    <a class="nav-link" href="{{ path('app_deals') }}">Deals</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Requests</a>
+                    <a class="nav-link" href="{{ path('app_requests') }}">Requests</a>
                 </li>
             </ul>
             {% if app.user %}

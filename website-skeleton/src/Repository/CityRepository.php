@@ -16,4 +16,16 @@ class CityRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, City::class);
     }
+
+    public function findCities(string $query)
+    {
+        return $this
+            ->createQueryBuilder('c')
+            ->select('c.name as text')
+            ->where('c.name LIKE :query')
+            ->setParameter('query', sprintf("%s%%", $query))
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

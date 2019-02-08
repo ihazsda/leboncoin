@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My account{% endblock %}
+
+{% block body %}
+    <hr class="area-divider">
+
+    <div  class="row area">
+        <div class="col-xs-12 col-md-12">
+            <h2 class="area-heading pl-3 text-center mb-5">My account</h2>
+            <p class="lead text-center">
+                <span class="orange">Username:</span> {{ app.user.username }}
+            </p>
+            <p class="lead text-center">
+                <span class="orange">eMail:</span> {{ app.user.email }}
+            </p>
+            <p class="lead text-center">
+                <span class="orange">Phone:</span> {{ app.user.phone }}
+            </p>
+            <p class="lead text-center">
+                <a href="{{ path('fos_user_security_logout') }}">
+                    <button type="button" class="btn btn-outline-primary">Logout</button>
+                </a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

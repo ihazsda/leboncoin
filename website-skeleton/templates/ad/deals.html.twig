@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LeBonCoin{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <p class="lead text-center">
+            <form role="form" data-toggle="validator" action="{{ path('app_deals') }}" method="GET">
+                {% include 'ad/search_form.html.twig' %}
+            </form>
+            </p>
+        </div>
+    </div>
+
+
+    <hr class="area-divider mt-2">
+
+    <div class="row area">
+        {% for deal in ads %}
+           {% include 'ad/_ad.html.twig' with {'ad': deal} %}
+        {% endfor %}
+    </div>
+
+{% endblock %}

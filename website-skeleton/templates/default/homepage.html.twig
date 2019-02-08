@@ -10,13 +10,16 @@
             <h2 class="area-heading">Find a bargain...</h2>
             <h2 class="area-heading text-right mb-4"><span class="text-muted"> ...on <i class="orange">leboncoin</i></span></h2>
             <p class="lead text-center">
-                <a href="">
+                <a href="{{ path('app_add_ad') }}">
                     <button type="button" class="btn btn-primary btn-lg">
                         <i class="fa fa-plus-square"></i> Place ad
                     </button>
                 </a>
             </p>
             <p class="lead text-center">
+                {% for city in cities %}
+                    <a href="{{ path('app_deals', {'city': city.name}) }}">{{ city.name }}</a>&nbsp;
+                {% endfor %}
             </p>
 
         </div>

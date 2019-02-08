@@ -1,0 +1,15 @@
+<div class="col-xs-12 col-md-7 push-md-5">
+    <h2 class="area-heading">{{ ad.title }}</h2>
+    {% if ad.price %}
+        <p class="lead orange"> {{ ad.price }} €</p>
+    {% endif %}
+    <p class="lead">{{ ad.text }}</p>
+    <p class="lead">{{ ad.city.name }} {{ ad.city.zipcode }}</p>
+    <p class="lead">Added by: {{ ad.user.email }}</p>
+    {% if not ad.hidePhone %}
+        <p class="lead orange">{{ ad.user.phone }}</p>
+    {% endif %}
+</div>
+<div class="col-xs-12 col-md-5 pull-md-7">
+    <img class="img-fluid mx-auto" src="">
+</div>

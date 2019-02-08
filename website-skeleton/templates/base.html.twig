@@ -15,7 +15,9 @@
 <body>
 {% block menu %}{% include 'default/menu.html.twig' %}{% endblock %}
 <div class="container">
-    {% include 'default/login.html.twig' %}
+    {% block login_modal %}
+        {% include 'default/login.html.twig' %}
+    {% endblock %}
     {% block body %}{% endblock %}
 </div>
 {% block javascripts %}

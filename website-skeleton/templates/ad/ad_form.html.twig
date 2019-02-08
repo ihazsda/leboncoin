@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add ad{% endblock %}
+
+{% block body %}
+    <div class="row area mt-5">
+        <div class="col-xs-12 col-md-12">
+            <h2 class="area-heading pl-3">Place an ad</h2>
+            <p class="lead text-center">
+                <form role="form" data-toggle="validator" action="{{ path('app_add_ad') }}" method="post">
+                    <div class="row">
+                        <div class="form-group col-10 offset-1">
+                        </div>
+                        <div class="form-group col-10 offset-1">
+                            <label for="category">Category*</label>
+                            {{ form_widget(adForm.category, {'attr': {
+                                'class': 'form-control',
+                                'placeholder': 'category',
+                                'data-error': 'Please select category',
+                                'required': 'required',
+                            } }) }}
+                        </div>
+                        <div class="col-10 offset-1">
+            <p>Add type*</p>
+        </div>
+        <div class="form-check col-2 offset-1">
+            {{ form_widget(adForm.type, {'attr': {
+                'class': 'form-control',
+                'type': 'form-check-input',
+            } }) }}
+        </div>
+        <div class="form-group col-10 offset-1">
+            <label for="InputAddTitle">Add title*</label>
+            <div class="input-group">
+                {{ form_widget(adForm.title, {'attr': {
+                    'class': 'form-control',
+                    'placeholder': 'title',
+                    'data-error': 'Please add a title',
+                    'required': 'required',
+                } }) }}
+            </div>
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group col-10 offset-1">
+            <label for="InputAddText">Add text*</label>
+            <div class="input-group">
+                {{ form_widget(adForm.text, {'attr': {
+                    'class': 'form-control',
+                    'placeholder': 'Description',
+                    'data-error': 'Please add a description',
+                    'required': 'required',
+                } }) }}
+            </div>
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group col-10 offset-1">
+            <label for="InputAddText">Price</label>
+            <div class="input-group mb-3">
+                {{ form_widget(adForm.price, {'attr': {
+                    'class': 'form-control',
+                    'placeholder': 'price',
+                    'data-error': 'Please add a price',
+                } }) }}
+            </div>
+        </div>
+        <div class="form-group col-10 offset-1">
+            <label for="photo">Photos</label>
+            <input type="file" class="form-control-file" id="photo">
+        </div>
+        <div class="form-group col-10 offset-1">
+            <p class="text-white form-background p-2 mb-0 mt-2">Localization</p>
+        </div>
+        <div class="form-group col-10 offset-1">
+            <label for="InputCity">City</label>
+            <div class="input-group">
+                {{ form_widget(adForm.city, {'attr': {
+                    'class': 'form-control',
+                    'placeholder': 'city',
+                    'data-error': 'Please select a city',
+                    'required': 'required',
+                } }) }}
+            </div>
+        </div>
+        <div class="form-group col-10 offset-1">
+            <p class="text-white form-background p-2 mb-0 mt-2">Your info</p>
+        </div>
+        <div class="form-group col-10 offset-1 mb-0">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        {{ form_widget(adForm.hidePhone, {'attr': {
+                            'aria-label': 'Checkbox for the hide phone number',
+                        } }) }}
+                    </div>
+                </div>
+                <p class="ml-3"> Hide phone number</p>
+            </div>
+        </div>
+        {{ form_end(adForm) }}
+        <div class="form-group col-10 offset-1 text-center mt-5">
+            <div class="input-group">
+                <input type="submit" id="submit" value="Save ad"
+                       class="btn btn-info w-100">
+            </div>
+        </div>
+    </div>
+    </form>
+    </p>
+    </div>
+    </div>
+
+{% endblock %}
