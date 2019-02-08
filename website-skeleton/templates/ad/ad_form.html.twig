@@ -7,7 +7,7 @@
         <div class="col-xs-12 col-md-12">
             <h2 class="area-heading pl-3">Place an ad</h2>
             <p class="lead text-center">
-                <form role="form" data-toggle="validator" action="{{ path('app_add_ad') }}" method="post">
+                <form role="form" data-toggle="validator" action="{{ path('app_add_ad') }}" method="post" enctype=multipart/form-data>
                     <div class="row">
                         <div class="form-group col-10 offset-1">
                         </div>
@@ -64,13 +64,22 @@
             </div>
         </div>
         <div class="form-group col-10 offset-1">
-            <label for="photo">Photos</label>
-            <input type="file" class="form-control-file" id="photo">
+            <label for="photo1">Photos</label>
         </div>
+        <div class="form-group col-3 offset-1 text-center">
+            {{ form_widget(adForm.photo1File) }}
+        </div>
+        <div class="form-group col-3 text-center">
+            {{ form_widget(adForm.photo2File) }}
+        </div>
+        <div class="form-group col-3 text-center">
+            {{ form_widget(adForm.photo3File) }}
+        </div>
+
         <div class="form-group col-10 offset-1">
             <p class="text-white form-background p-2 mb-0 mt-2">Localization</p>
         </div>
-        <div class="form-group col-10 offset-1">
+        <div class="form-group col-10 offset-1 ">
             <label for="InputCity">City</label>
             <div class="input-group">
                 {{ form_widget(adForm.city, {'attr': {

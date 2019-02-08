@@ -3,11 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="ads")
  * @ORM\Entity(repositoryClass="App\Repository\AdRepository")
+ * @Vich\Uploadable
  */
 class Ad
 {
@@ -61,6 +64,13 @@ class Ad
     protected $createdAt;
 
     /**
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     *
+     * @var \DateTime
+     */
+    private $updatedAt;
+
+    /**
      * @var User
      *
      * @ORM\ManyToOne(targetEntity="User", inversedBy="ads")
@@ -83,6 +93,45 @@ class Ad
      * @ORM\JoinColumn(name="city_id", referencedColumnName="id")
      */
     protected $city;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photo1", type="string", length=255, nullable=true)
+     */
+    private $photo1;
+
+    /**
+     * @var File
+     * @Vich\UploadableField(mapping="ad_image", fileNameProperty="photo1")
+     */
+    private $photo1File;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photo2", type="string", length=255, nullable=true)
+     */
+    private $photo2;
+
+    /**
+     * @var File
+     * @Vich\UploadableField(mapping="ad_image", fileNameProperty="photo2")
+     */
+    private $photo2File;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photo3", type="string", length=255, nullable=true)
+     */
+    private $photo3;
+
+    /**
+     * @var File
+     * @Vich\UploadableField(mapping="ad_image", fileNameProperty="photo3")
+     */
+    private $photo3File;
 
     /**
      * Ad constructor.
@@ -242,5 +291,129 @@ class Ad
     public function setText($text)
     {
         $this->text = $text;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhoto1()
+    {
+        return $this->photo1;
+    }
+
+    /**
+     * @param string $photo1
+     */
+    public function setPhoto1($photo1)
+    {
+        $this->photo1 = $photo1;
+    }
+
+    /**
+     * @return File
+     */
+    public function getPhoto1File()
+    {
+        return $this->photo1File;
+    }
+
+    /**
+     * @param File $photo1File
+     */
+    public function setPhoto1File($photo1File)
+    {
+        $this->photo1File = $photo1File;
+
+        if (null !== $photo1File) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhoto2()
+    {
+        return $this->photo2;
+    }
+
+    /**
+     * @param string $photo2
+     */
+    public function setPhoto2($photo2)
+    {
+        $this->photo2 = $photo2;
+    }
+
+    /**
+     * @return File
+     */
+    public function getPhoto2File()
+    {
+        return $this->photo2File;
+    }
+
+    /**
+     * @param File $photo2File
+     */
+    public function setPhoto2File($photo2File)
+    {
+        $this->photo2File = $photo2File;
+
+        if (null !== $photo2File) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhoto3()
+    {
+        return $this->photo3;
+    }
+
+    /**
+     * @param string $photo3
+     */
+    public function setPhoto3($photo3)
+    {
+        $this->photo3 = $photo3;
+    }
+
+    /**
+     * @return File
+     */
+    public function getPhoto3File()
+    {
+        return $this->photo3File;
+    }
+
+    /**
+     * @param File $photo3File
+     */
+    public function setPhoto3File($photo3File)
+    {
+        $this->photo3File = $photo3File;
+
+        if (null !== $photo3File) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param mixed $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
     }
 }

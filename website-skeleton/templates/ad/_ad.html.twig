@@ -11,5 +11,9 @@
     {% endif %}
 </div>
 <div class="col-xs-12 col-md-5 pull-md-7">
-    <img class="img-fluid mx-auto" src="">
+    {% if ad.photo1 %}
+        <img class="img-fluid mx-auto" src="{{ vich_uploader_asset(ad, 'photo1File') }}">
+    {% else %}
+        <img class="img-fluid mx-auto" src="{{ asset('assets/img/no-photo.png') }}">
+    {% endif %}
 </div>

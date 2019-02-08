@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class AdType extends AbstractType
 {
@@ -36,7 +37,17 @@ class AdType extends AbstractType
             ])
             ->add('city', EntityType::class, [
                 'class' => City::class,
-            ]);
+            ])
+            ->add('photo1File', VichImageType::class, [
+                'required' => false,
+            ])
+            ->add('photo2File', VichImageType::class, [
+                'required' => false,
+            ])
+            ->add('photo3File', VichImageType::class, [
+                'required' => false,
+            ])
+        ;
     }
 
     public function getBlockPrefix()
