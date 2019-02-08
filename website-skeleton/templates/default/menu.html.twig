@@ -1,0 +1,43 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+    <div class="container">
+        <button id="toggle" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand orange" href="/">Leboncoin(clone)</a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href=""><i class="fa fa-home"></i> <span
+                                class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">New Ad</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Deals</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Requests</a>
+                </li>
+            </ul>
+            {% if app.user %}
+                <a href="{{ path('fos_user_profile_show') }}">
+                    <button class="btn btn-outline-orange my-2 my-sm-0" type="btn"
+                            data-toggle="modal" data-target="#userModal">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </button>
+                </a>
+            {% else %}
+                <a href="#">
+                    <button class="btn btn-outline-orange my-2 my-sm-0" type="btn"
+                            data-toggle="modal" data-target="#userModal">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </button>
+                </a>
+            {% endif %}
+
+        </div>
+    </div>
+</nav>

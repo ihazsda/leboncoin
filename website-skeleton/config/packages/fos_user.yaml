@@ -5,3 +5,6 @@ fos_user:
     from_email:
         address:        noreply@ioana.test
         sender_name:    Ioana Hazsda
+    registration:
+        form:
+          type: AppBundle\Form\RegistrationType

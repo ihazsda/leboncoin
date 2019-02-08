@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <hr id="me" class="area-divider">
+
+    <div class="row area">
+        <div class="col-xs-12 col-md-12">
+            <h2 class="area-heading text-center">Create account</h2>
+            <p class="lead text-center">
+                <form role="form" data-toggle="validator" action="#" method="post">
+                    <div class="row">
+                        <div class="form-group col-10 offset-1">
+                            <label for="InputUserName">Username*</label>
+                            <div class="input-group">
+                                {{ form_widget(registrationForm.username, {'attr': {
+                                    'class': 'form-control',
+                                    'placeholder': 'username',
+                                    'data-error': 'Please type username',
+                                    'required': 'required',
+                                } }) }}
+                            </div>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group col-10 offset-1">
+                            <label for="InputEmail">Email address*</label>
+                            {{ form_widget(registrationForm.email, {'attr': {
+                                'class': 'form-control',
+                                'placeholder': 'email',
+                                'data-error': 'Ops! Invalid eMail address',
+                                'required': 'required',
+                            } }) }}
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group col-5 offset-1">
+                            <label for="InputPassword">Password*</label>
+                            <div class="input-group">
+                                {{ form_widget(registrationForm.plainPassword.first, {'attr': {
+                                    'class': 'form-control',
+                                    'placeholder': 'password',
+                                    'data-error': 'Please type password',
+                                    'required': 'required',
+                                } }) }}
+                            </div>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group col-5">
+                            <label for="InputConfirmPassword">Confirm password*</label>
+                            <div class="input-group">
+                                {{ form_widget(registrationForm.plainPassword.second, {'attr': {
+                                    'class': 'form-control',
+                                    'placeholder': 'confirm password',
+                                    'data-error': 'Please type password again',
+                                    'required': 'required',
+                                } }) }}
+                            </div>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group col-10 offset-1">
+                            <label for="InputEmail">Phone</label>
+                            {{ form_widget(registrationForm.phone, {'attr': {
+                                'class': 'form-control',
+                                'placeholder': 'Phone',
+                                'data-error': 'Please type valid phone number',
+                            } }) }}
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group col-10 offset-1 mb-0">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        {{ form_widget(registrationForm.acceptNewsletter, {'attr': {
+                                            'aria-label': 'Checkbox for the newsletter',
+                                        } }) }}
+                                    </div>
+                                </div>
+            <p class="ml-3"> I wish to receive the <i class="orange">leboncoin</i> newsletter</p>
+        </div>
+    </div>
+    <div class="form-group col-10 offset-1">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    {{ form_widget(registrationForm.termsAccepted, {'attr': {
+                        'aria-label': 'Checkbox for the terms and conditions',
+                    } }) }}
+                </div>
+            </div>
+            <p class="ml-3"> I agree to <i class="orange">leboncoin</i> Terms & Conditions*</p>
+        </div>
+    </div>
+    <div class="form-group col-10 offset-1 text-center">
+        <div class="input-group">
+            <input type="submit" name="submit" value="Create account"
+                   class="btn btn-info w-100">
+        </div>
+    </div>
+    {{ form_end(registrationForm) }}
+    </form>
+    </div>
+    </div>
+
+{% endblock %}
